@@ -1,16 +1,18 @@
 import dataIn from "./showData.js";
+import { extendCards } from "./renderCards.js"
+
 let data = dataIn
 function getData() {
   //Filter to data after current day/current day
   data = dataIn.filter((index) => new Date() < new Date(index.premiere).setHours(23,59,59,999));
 }
 
-function addElement(index, cardPicture, episode) {
+function addElement(cardPicture, episode) {
 
     const newDiv = document.createElement("div");
     newDiv.className=`card`;
-    newDiv.id=`secondary${index}`;
-    newDiv.style=`width: ${730-(index*120)}px; margin-top: ${8-(index+1)*3}px`;
+    newDiv.id="primary";
+    newDiv.style=`width: ${730}px; margin-top: ${8}px`;
 
     //background img
     const newBackground = document.createElement("img");
@@ -21,31 +23,34 @@ function addElement(index, cardPicture, episode) {
     const newText = document.createElement("h1");
     newText.textContent = episode;
     newText.style=`
-        margin-top: ${30-((index)*6)}px;
-        font-size: ${45-((index)*8)}px;
+        margin-top: 30px;
+        font-size: 45px;
     `;
 
     newDiv.appendChild(newBackground);
     newDiv.appendChild(newText);
 
     document.getElementById("cardContainer").appendChild(newDiv);
+    document.getElementById("primary").onclick = renderAllCards;  
     newText.id="episode";
 }
 
-function render() {
-  data.slice(0, 3).map((element, index) => {
-    if(index != 0) {
-      addElement(index, element.cardPicture, element.episode);
-      const thisElement = new Date(element.premiere);
+function renderAllCards() {
+    const card2 = document.getElementById("secondary1");
+    console.log(card2);
+    if (!card2) {
+        extendCards(true);
+    } else {
+        var node = document.getElementById("secondary1");
+        node.remove();
     }
-    index == 0 && (
-        document.body.style.backgroundImage=`url(${element.backgroundPicture})`)
-  });
+    return false;
+}   
+
+function render() {
+    addElement(data[0].cardPicture, data[0].episode);
+    document.body.style.backgroundImage=`url(${data[0].backgroundPicture})`;
 }
 
-export function extendCards(visible = false) {
-  if(visible) {
-    getData()
-    render();
-  }
-}
+getData();
+render();

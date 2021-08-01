@@ -2,8 +2,7 @@
 <html lang="en">
     <head>
         <script type="module" src="./countdown.js"></script>
-        <script type="module" src="./renderCards.js"></script>
-        
+        <script type="module" src="./renderSingleCard.js"></script>
         <link rel="stylesheet" type="text/css" href="style.css">
         <meta charset="UTF-8" />
         <meta name="viewport" 
@@ -21,16 +20,6 @@
             </div>
             <div id="cardContainer"></div>
         </div>
-        <script>
-
-            document.getElementById('change').onclick = changeColor;   
-        
-            function changeColor() {
-                document.getElementById('change').style.backgroundColor = "purple";
-                return false;
-            }   
-        
-        </script>
 
         <!-- Here a loader is created which 
              loads till response comes 

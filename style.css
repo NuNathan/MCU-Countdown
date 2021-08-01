@@ -33,7 +33,7 @@
     flex-direction: column;
     margin-top:50px;
 }
-#card {
+.card {
     display: flex;
     margin-bottom: 5px;
     justify-content: center;
