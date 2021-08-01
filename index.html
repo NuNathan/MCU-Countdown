@@ -1,0 +1,45 @@
+<!DOCTYPE html>
+<html lang="en">
+    <head>
+        <script type="module" src="./countdown.js"></script>
+        <script type="module" src="./renderCards.js"></script>
+        
+        <link rel="stylesheet" type="text/css" href="style.css">
+        <meta charset="UTF-8" />
+        <meta name="viewport" 
+              content="width=device-width, initial-scale=1.0" />
+        <title>Document</title>
+        
+    <body>
+        <!--UI-->
+
+
+        
+        <div id="container">
+            <div id="countdownContainer">
+                <h1 id="countdown">Loading...</h1>
+            </div>
+            <div id="cardContainer"></div>
+        </div>
+        <script>
+
+            document.getElementById('change').onclick = changeColor;   
+        
+            function changeColor() {
+                document.getElementById('change').style.backgroundColor = "purple";
+                return false;
+            }   
+        
+        </script>
+
+        <!-- Here a loader is created which 
+             loads till response comes 
+        <div class="d-flex justify-content-center">
+            <div class="spinner-border" 
+                 role="status" id="loading">
+                <span class="sr-only">Loading...</span>
+            </div>
+        </div>
+        -->
+    </body>
+</html>
