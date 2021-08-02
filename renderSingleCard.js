@@ -36,12 +36,12 @@ function addElement(cardPicture, episode) {
 }
 
 function renderAllCards() {
-    const card2 = document.getElementById("secondary1");
+    const card2 = document.getElementById("secondarys");
     console.log(card2);
     if (!card2) {
         extendCards(true);
     } else {
-        var node = document.getElementById("secondary1");
+        var node = document.getElementById("secondary");
         node.remove();
     }
     return false;

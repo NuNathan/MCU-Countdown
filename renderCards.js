@@ -9,7 +9,7 @@ function addElement(index, cardPicture, episode) {
 
     const newDiv = document.createElement("div");
     newDiv.className=`card`;
-    newDiv.id=`secondary${index}`;
+    newDiv.id=`secondary`;
     newDiv.style=`width: ${730-(index*120)}px; margin-top: ${8-(index+1)*3}px`;
 
     //background img
